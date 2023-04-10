@@ -1,4 +1,10 @@
 public class Customer {
-    static String username = "customer";
-    static String password = "customer";
+    private static String username = "Customer";
+    private static String password = "Customer";
+    public static String getUserCustomer(){
+        return username;
+    }
+    public static String getPassCustomer(){
+        return password;
+    }
 }
