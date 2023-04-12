@@ -12,46 +12,60 @@ public class Admin {
     }
 
     public static void adminPage(){
-        int a = 0;
+        ArrayList<Restaurant> restaurants = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
         do{
-            Scanner scan = new Scanner(System.in);
+            int i;
             System.out.println("============================================");
             System.out.println("1. Tambah Restaurant\n2. Lihat Restaurant\n3. Hapus Restaurant\n4. Kembali ke login");
             System.out.print("Pilih Menu: ");
-            try{
-                int menu = scan.nextInt();
-                switch(menu){
-                    case 1:
-                        System.out.println("tambah");
+            String input = scan.nextLine();
+            switch(input){
+                case "1":
+                    System.out.print("masukin nama restoran => ");String nameRestaurant = scan.nextLine();
+                    System.out.print("masukin alamat restoran => ");String addressRestaurant = scan.nextLine();
+                    System.out.print("masukin menu restoran => ");String menuRestaurants = scan.nextLine();
+                    Restaurant newRestaurant = new Restaurant(nameRestaurant, addressRestaurant, menuRestaurants);
+                    restaurants.add(newRestaurant);
+                    System.out.println("Restoran Berhasil Ditambah!");
+                    break;
+                case "2":
+                    if(restaurants.get(0) != null){
+                        System.out.println("All restaurants:");
+                        i=1;
+                        for (Restaurant restaurant : restaurants) {
+                            System.out.printf("%d. %s%n",i,restaurant.toString());
+                            i++;
+                        }
+                    }else{
+                        System.out.println("Belum ada restaurant!");
+                    }
+                    break;
+                case "3":
+                    System.out.println("All restaurants:");
+                    i=1;
+                    for (Restaurant restaurant : restaurants) {
+                        System.out.printf("%d. %s%n",i,restaurant.toString());
+                        i++;
+                    }
+                    System.out.println("============================================");
+                    System.out.print("Pilih restoran yang ingin dihapus: ");
+                    int noRestaurant = scan.nextInt();
+                    try{
+                        restaurants.remove(noRestaurant-1);
+                        System.out.println("Restoran berhasil dihapus"); 
+                    } catch(IndexOutOfBoundsException e){
+                        System.out.println("Restoran tidak ada");
                         break;
-                    case 2:
-                        System.out.println("lihat");
-                        break;
-                    case 3:
-                        System.out.println("hapus");
-                        break;
-                    case 4:
-                        App.intro();
-                    default:
-                        System.out.println("tolong masukan input dengan benar");
-                        a=1;
-                }
-            } catch(InputMismatchException e){
-                System.out.println("masukan input dengan benar");
-                a=1;
+                    }
+                    break;
+                case "4":
+                    App.intro();
+                default:
+                    System.out.println("tolong masukan input dengan benar");
+                    break;
             }
-            scan.close();
-        }while(a == 1);
+        }while(true);
+        
     }
 }
-
-
-
-
-// Scanner scan = new Scanner(System.in);
-    // System.out.print("masukin nama restoran => "); String name = scan.nextLine();
-    // System.out.print("masukin alamat restoran => ");String address = scan.nextLine();
-    // System.out.print("masukin menu restoran => ");String menu = scan.nextLine();
-    // Restaurant restaurant1 = new Restaurant(name, address, menu);
-    // scan.close();
-    // System.out.printf("Nama Restoran = %s%nAlamat Restoran = %s%nMenu = %s%n",restaurant1.getName(),restaurant1.getAddress(),restaurant1.getMenu());
