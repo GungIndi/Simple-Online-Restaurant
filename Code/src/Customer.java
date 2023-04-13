@@ -28,7 +28,7 @@ public class Customer {
                         System.out.println("lihat pesanan\n");
                         break;
                     case 3:
-                        App.intro();
+                        App.login();
                     default:
                         System.out.println("tolong masukan input dengan benar");
                         a=1;
