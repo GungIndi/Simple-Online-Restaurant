@@ -6,7 +6,7 @@ public class App {
     static int a = 0;
     String name, address, menu;
     public static void main(String[] args) throws Exception {
-        login();
+        login(); 
     }
     public static void login(){
         Scanner scan = new Scanner(System.in);

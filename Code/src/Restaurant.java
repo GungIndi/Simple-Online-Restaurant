@@ -4,9 +4,14 @@ public class Restaurant {
     static ArrayList<Restaurant> restaurants = new ArrayList<>();
     private ArrayList<ArrayList<String>> foods = new ArrayList<>();
     private ArrayList<ArrayList<String>> drinks = new ArrayList<>();
+
     public Restaurant(String name, String address){
         this.name = name;
         this.address = address;
+    }
+
+    public static void addRestaurant(Restaurant restaurant){
+        restaurants.add(restaurant);
     }
 
     public  void setName(String name){

@@ -44,8 +44,9 @@ public class Admin {
         Scanner scan = new Scanner(System.in);
         System.out.print("masukin nama restoran => ");String nameRestaurant = scan.nextLine();
         System.out.print("masukin alamat restoran => ");String addressRestaurant = scan.nextLine();
-        Restaurant restaurants = new Restaurant(nameRestaurant, addressRestaurant);
+        Restaurant restaurants = new Restaurant(nameRestaurant, addressRestaurant);  
         System.out.println("Restoran Berhasil Ditambah!");
+        System.out.println(restaurants.getName());
         int ulang, input;
         do{
             System.out.println("============================================");
@@ -78,6 +79,8 @@ public class Admin {
             ulang = App.validInt();
             System.out.println(ulang);
         }while(ulang==1);
+
+        Restaurant.addRestaurant(restaurants);
     }
 
     public static void removeRestaurant(){
