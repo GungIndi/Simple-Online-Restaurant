@@ -12,29 +12,26 @@ public class Admin {
     }
 
     public static void adminPage(){
-        
-        Scanner scan = new Scanner(System.in);
         do{
-            int i=1;
             System.out.println("============================================");
             System.out.println("1. Tambah Restaurant\n2. Lihat Restaurant\n3. Hapus Restaurant\n4. Kembali ke login");
             System.out.print("Pilih Menu: ");
-            String input = scan.nextLine();
-            switch(input){
-                case "1":
+            int input1 = App.validInt();
+            switch(input1){
+                case 1:
                     addRestaurant();
                     break;
-                case "2":
+                case 2:
                     Restaurant.showRestaurant();
                     break;
-                case "3":
+                case 3:
                     removeRestaurant();
                     break;
-                case "4":
+                case 4:
                     App.login();
                     return;
                 default:
-                    System.out.println("tolong masukan input dengan benar");
+                    System.out.println("Tolong masukan input dengan benar");
                     break;
             }
         }while(true);
@@ -57,7 +54,7 @@ public class Admin {
                 System.out.println("1. Tambah Makanan\n2. Tambah Minuman");   
                 input = App.validInt();
                 if(input<1 || input >2){
-                    System.out.println("Input salah, bak ulang\n=> ");
+                    System.out.println("Input salah,coba ulangi\n=> ");
                 }
             }while(input<1 || input >2);
 
@@ -65,11 +62,9 @@ public class Admin {
             System.out.print("masukan harga menu: "); String menuPrice = Double.toString(App.validDouble());
             switch(input){
                 case 1:
-                    // System.out.println("MAKANANNN");
                     restaurants.addFood(menuName, menuPrice);
                     break;
                 case 2:
-                    // System.out.println("MINUMANNNN");
                     restaurants.addDrink(menuName, menuPrice);
                     break;
             }
@@ -84,17 +79,16 @@ public class Admin {
     }
 
     public static void removeRestaurant(){
-        Scanner scan = new Scanner(System.in);
         System.out.println("All restaurants:");
         // System.out.println("============================================");
-        Restaurant.showRestaurant();
-        System.out.print("Pilih restoran yang ingin dihapus: ");
-        int id = scan.nextInt();
-        if(Restaurant.restaurants.size() == 0){
+        if(Restaurant.showRestaurant() != 0){
+            System.out.print("Pilih restoran yang ingin dihapus: ");
+            int id = App.validInt();
             Restaurant.removeRestaurant(id);
         }
         else{
-            System.out.println("Restoran tidak ada");
+            System.out.println("Silahkan menambah restoran terlebih dahulu");
+            return;
         }
     }
 }

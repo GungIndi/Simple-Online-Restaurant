@@ -32,7 +32,6 @@ public class App {
                 System.out.println ("CREDENTIALS TIDAK SESUAI");
             }
         }while (a==0);
-        scan.close();
     }
 
     public static double validDouble(){
