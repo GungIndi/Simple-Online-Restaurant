@@ -31,7 +31,7 @@ public class Admin {
                     App.login();
                     return;
                 default:
-                    System.out.println("Tolong masukan input dengan benar");
+                    System.out.println("Input salah, Ulang");
                     break;
             }
         }while(true);
