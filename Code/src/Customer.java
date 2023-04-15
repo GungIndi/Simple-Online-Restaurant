@@ -20,10 +20,9 @@ public class Customer {
             switch(menu){
                 case 1:
                     addOrder();
-                    // addOrder();
                     break;
                 case 2:
-                    System.out.println("lihat pesanan\n");
+                    Order.showOrder();
                     break;
                 case 3:
                     App.login();
@@ -80,6 +79,7 @@ public class Customer {
                                 System.out.println("masukan jumlah dengan benar!\n");
                             }
                         }while(totalOrder == 0);
+                        System.out.println(("Apakah ingin memesan menu lain?"));
                         System.out.println("masukan jarak: ");
                         double distance = App.validDouble();
                         Order.addOrder(new Order(
