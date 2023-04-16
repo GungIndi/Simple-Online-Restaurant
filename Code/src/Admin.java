@@ -12,10 +12,11 @@ public class Admin {
     }
 
     public static void adminPage(){
+        // App.clearScreen();
         do{
-            System.out.println("============================================");
-            System.out.println("1. Tambah Restaurant\n2. Lihat Restaurant\n3. Hapus Restaurant\n4. Kembali ke login");
-            System.out.print("Pilih Menu: ");
+            System.out.println("\t1. Tambah Restaurant\n\t2. Lihat Restaurant\n\t3. Hapus Restaurant\n\t4. Kembali ke login");
+            System.out.println("\t==============================================");
+            System.out.print("\tPilih Menu: ");
             int input1 = App.validInt();
             switch(input1){
                 case 1:
@@ -39,27 +40,34 @@ public class Admin {
 
     public static void addRestaurant(){
         Scanner scan = new Scanner(System.in);
-        System.out.print("masukin nama restoran => ");String nameRestaurant = scan.nextLine();
-        System.out.print("masukin alamat restoran => ");String addressRestaurant = scan.nextLine();
+        App.clearScreen();
+        System.out.println("\n\t==============================================");
+        System.out.print("\tMasukin Nama Restoran => ");String nameRestaurant = scan.nextLine();
+        System.out.print("\tMasukin Alamat Restoran => ");String addressRestaurant = scan.nextLine();
+        // System.out.println("\n\t==============================================");
         Restaurant restaurants = new Restaurant(nameRestaurant, addressRestaurant);  
-        System.out.println("Restoran Berhasil Ditambah!");
-        System.out.println(restaurants.getName());
+        System.out.println("\tRestoran Berhasil Ditambah!");
+        // System.out.println(restaurants.getName());
         int ulang, input;
         do{
-            System.out.println("============================================");
-            System.out.printf("Restoran %s%n",nameRestaurant);
-            System.out.println("Tambah Menu : ");
+            App.clearScreen();
+            System.out.println("\t============================================");
+            System.out.printf("\tRestoran %s%n",nameRestaurant);
 
             do{
-                System.out.println("1. Tambah Makanan\n2. Tambah Minuman");   
+            System.out.println("\t============================================");
+            System.out.println("\tTambah Menu : ");
+
+                System.out.println("\t1. Tambah Makanan\n\t2. Tambah Minuman");   
                 input = App.validInt();
                 if(input<1 || input >2){
-                    System.out.println("Input salah,coba ulangi\n=> ");
+                    App.clearScreen();
+                    System.out.println("\tInput Salah, Ulangi");
                 }
             }while(input<1 || input >2);
 
-            System.out.print("masukan nama menu: "); String menuName = scan.nextLine();
-            System.out.print("masukan harga menu: "); String menuPrice = Double.toString(App.validDouble());
+            System.out.print("\tMasukan Nama Menu: "); String menuName = scan.nextLine();
+            System.out.print("\tMasukan Harga Menu: Rp."); String menuPrice = Double.toString(App.validDouble());
             switch(input){
                 case 1:
                     restaurants.addFood(menuName, menuPrice);
@@ -68,9 +76,9 @@ public class Admin {
                     restaurants.addDrink(menuName, menuPrice);
                     break;
             }
-            // System.out.println(Restaurant.getaArrayList());
-            System.out.printf("%s%n%s%n%s%n",restaurants.getName(),restaurants.getAddress(),restaurants.getFoods());
-            System.out.print("apakah anda ingin menambah menu lainnya?\n1. Ya\n2. Tidak\n"); 
+            App.clearScreen();
+            System.out.println("\t============================================");
+            System.out.print("\tApakah anda ingin menambah menu lainnya?\n\t1. Ya\n\t2. Tidak\n"); 
             ulang = App.validInt();
             System.out.println(ulang);
         }while(ulang==1);
@@ -79,15 +87,16 @@ public class Admin {
     }
 
     public static void removeRestaurant(){
-        System.out.println("All restaurants:");
-        // System.out.println("============================================");
+        System.out.println("\t============================================");
+        System.out.println("\tAll restaurants:");
         if(Restaurant.showRestaurant() != 0){
-            System.out.print("Pilih restoran yang ingin dihapus: ");
+            System.out.println("\t============================================");
+            System.out.print("\tPilih restoran yang ingin dihapus: ");
             int id = App.validInt();
             Restaurant.removeRestaurant(id);
         }
         else{
-            System.out.println("Silahkan menambah restoran terlebih dahulu");
+            System.out.println("\tSilahkan menambah restoran terlebih dahulu");
             return;
         }
     }

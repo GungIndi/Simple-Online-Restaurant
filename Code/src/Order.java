@@ -80,6 +80,5 @@ public class Order {
                 totalPrice = order.getTotalPrice();
         }
         return totalPrice;
-
     }
 }  
