@@ -56,7 +56,7 @@ public class Order {
     }
 
     public double getTotalPrice(){
-        return Double.parseDouble(menuPrice) * totalOrder + ((distance % 1) * 1000);
+        return (Double.parseDouble(menuPrice) * totalOrder + (distance * 1000));
     }
 
     public static double showOrder(){

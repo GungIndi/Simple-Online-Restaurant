@@ -101,7 +101,7 @@ public class Customer {
                                 }
                             }while(totalOrder == 0);
                             // System.out.println(("\tApakah ingin memesan menu lain?"));
-                            System.out.println("\tMasukan jarak(KM): ");
+                            System.out.print("\tMasukan jarak(KM): ");
                             double distance = App.validDouble();
                             Order.addOrder(new Order(
                                 idRestaurant,                            
@@ -145,7 +145,7 @@ public class Customer {
                                     System.out.println("\tMasukan jumlah dengan benar!\n");
                                 }
                             }while(totalOrder == 0);
-                            System.out.println("\tMasukan jarak(KM): ");
+                            System.out.print("\tMasukan jarak(KM): ");
                             double distance = App.validDouble();
                             Order.addOrder(new Order(
                                 idRestaurant,                            
