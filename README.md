@@ -70,11 +70,17 @@ Berikut adalah halaman login dari aplikasi
 
 2. **Buat Pesanan**
     Customer dapat membuat pesanan baru pada aplikasi dan nantinya akan memasukan parameter jumlah pesanan dan jarak untuk nantinya dikalkulasikan untuk menentukan total biaya
+
     Pertama Customer akan memilih Restoran tempat memesan
+
     ![Buat Pesanan](/img/Buat%20Pesanan1.png "Buat Pesanan")
+
     Kedua Customer akan memilih jenis menu yang akan dipesan
+
     ![Buat Pesanan](/img/Buat%20Pesanan2.png "Buat Pesanan")
+
     Ketiga Customer memilih Menu yang ingin dipesan dan memasukan jumlah pesanan dan jarak
+    
     ![Buat Pesanan](/img/Buat%20Pesanan3.png "Buat Pesanan")
 
 
