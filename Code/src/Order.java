@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Order {
     private String name,address, menuName, menuPrice;
@@ -55,29 +56,35 @@ public class Order {
     }
 
     public double getTotalPrice(){
-        return Double.parseDouble(menuPrice) * totalOrder + ((distance % 10) * 1000);
+        return Double.parseDouble(menuPrice) * totalOrder + ((distance % 1) * 1000);
     }
 
-    // public class addOrder {
-    // }
-
     public static double showOrder(){
+        Scanner scan = new Scanner(System.in);
+        App.clearScreen();
         double totalPrice = 0.0;
         if(orders.size() == 0){
-            System.out.println("Tidak ada orderan");
+            App.clearScreen();
+            System.out.println("\n\t==============================================");
+            System.out.println("\tTidak ada orderan");
             return 0.0;
         }
         for(Order order: orders){
-            System.out.printf("\nID RESTO :%d\nID MENU :%d\n%s-%s\t : %s\t\tRp. %s %dpcs \t\t : Rp. %.2f\n",
-                getidRestaurant(),
-                getidMenu(),
+            App.clearScreen();
+            System.out.println("\n\t==============================================");
+            System.out.printf("\n\tRestoran %s-%s\n\n\tID Resto : %d\n\tID Menu  : %d\n\t%s\tRp. %s\t %d pcs\n\tTotal : Rp. %.2f\n",
                 order.getName(),
                 order.getAddress(),
+                getidRestaurant(),
+                getidMenu(),
                 order.getMenuName(),
                 order.getMenuPrice(),
                 order.getTotalOrder(),
                 order.getTotalPrice());
                 totalPrice = order.getTotalPrice();
+                System.out.println("\n\t==============================================");
+                System.out.print("\tPress enter to continue...");
+                scan.nextLine();
         }
         return totalPrice;
     }

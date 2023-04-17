@@ -53,17 +53,21 @@ public class Restaurant {
     }
 
     public static int showRestaurant(){
+        App.clearScreen();
         try{
             restaurants.get(0);
-            System.out.println("All restaurants:");
+            System.out.println("\n\t==============================================");
+            System.out.println("\tDaftar Restaurants:");
             int i=1;
             for (Restaurant restaurant : restaurants) {
-                System.out.printf("%d. %s%n",i,restaurant.getName());
+                System.out.printf("\t%d. Restoran %s%n",i,restaurant.getName());
                 i++;
             }
             return 1;
         }catch(IndexOutOfBoundsException e){
-            System.out.println("Restoran tidak ada");
+            App.clearScreen();
+            System.out.println("\n\t==============================================");
+            System.out.println("\tRestoran tidak ada!\n");
             // System.out.println(restaurants.size());
             return 0;
         }

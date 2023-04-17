@@ -12,27 +12,39 @@ public class Admin {
     }
 
     public static void adminPage(){
+        Scanner scan = new Scanner(System.in);
         // App.clearScreen();
         do{
+            System.out.println("\n\t==============================================");
+            System.out.println("\t||               Welcome Admin!             ||");
+            System.out.println("\t==============================================");
             System.out.println("\t1. Tambah Restaurant\n\t2. Lihat Restaurant\n\t3. Hapus Restaurant\n\t4. Kembali ke login");
             System.out.println("\t==============================================");
             System.out.print("\tPilih Menu: ");
             int input1 = App.validInt();
             switch(input1){
                 case 1:
+                    // App.clearScreen();
                     addRestaurant();
                     break;
                 case 2:
                     Restaurant.showRestaurant();
+                    System.out.print("\n\tPress enter to continue...\n\t");
+                    scan.nextLine();
+                    App.clearScreen();
                     break;
                 case 3:
                     removeRestaurant();
+                    System.out.print("\tPress enter to continue...\n\t");
+                    scan.nextLine();
+                    App.clearScreen();
                     break;
                 case 4:
                     App.login();
                     return;
                 default:
-                    System.out.println("Input salah, Ulang");
+                    System.out.println("\tInput salah, Ulang");
+                    App.clearScreen();
                     break;
             }
         }while(true);
@@ -40,8 +52,8 @@ public class Admin {
 
     public static void addRestaurant(){
         Scanner scan = new Scanner(System.in);
-        App.clearScreen();
-        System.out.println("\n\t==============================================");
+        // App.clearScreen();
+        System.out.println("\t==============================================");
         System.out.print("\tMasukin Nama Restoran => ");String nameRestaurant = scan.nextLine();
         System.out.print("\tMasukin Alamat Restoran => ");String addressRestaurant = scan.nextLine();
         // System.out.println("\n\t==============================================");
@@ -77,26 +89,32 @@ public class Admin {
                     break;
             }
             App.clearScreen();
-            System.out.println("\t============================================");
-            System.out.print("\tApakah anda ingin menambah menu lainnya?\n\t1. Ya\n\t2. Tidak\n"); 
-            ulang = App.validInt();
-            System.out.println(ulang);
+            do{
+                System.out.println("\t============================================");
+                System.out.print("\tApakah anda ingin menambah menu lainnya?\n\t1. Ya\n\t2. Tidak\n");  
+                    ulang = App.validInt();
+                    if(ulang<1 || ulang >2){
+                        App.clearScreen();
+                        System.out.println("\tInput Salah, Ulangi");
+                    }
+            }while(ulang<1 || ulang >2);
         }while(ulang==1);
-
         Restaurant.addRestaurant(restaurants);
+        App.clearScreen();
     }
 
     public static void removeRestaurant(){
-        System.out.println("\t============================================");
-        System.out.println("\tAll restaurants:");
+        App.clearScreen();
         if(Restaurant.showRestaurant() != 0){
-            System.out.println("\t============================================");
+            System.out.println("\n\t==============================================");
             System.out.print("\tPilih restoran yang ingin dihapus: ");
             int id = App.validInt();
             Restaurant.removeRestaurant(id);
+            System.out.println("\n\t==============================================");
+            System.out.println("\tRestaurant Berhasil Dihapus!");
         }
         else{
-            System.out.println("\tSilahkan menambah restoran terlebih dahulu");
+            System.out.println("\tSilahkan menambah restoran terlebih dahulu!\n");
             return;
         }
     }

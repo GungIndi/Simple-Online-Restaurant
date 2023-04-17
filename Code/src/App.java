@@ -17,21 +17,15 @@ public class App {
         System.out.println("\t||                                          ||");
         System.out.println("\t==============================================");
         do{
-            System.out.print("\n\tMasukin user => ");String username = scan.nextLine();
-            System.out.print("\tmasukin pass => ");String pass = scan.nextLine();
+            System.out.print("\tMasukin Username => ");String username = scan.nextLine();
+            System.out.print("\tMasukin Password => ");String pass = scan.nextLine();
             if(username.equals(Customer.getUserCustomer()) && pass.equals(Customer.getPassCustomer())){
                 App.clearScreen();
-                System.out.println("\n\t==============================================");
-                System.out.println("\t||             Welcome Customer!            ||");
-                System.out.println("\t==============================================");
                 Customer.customerPage();
                 a = 1;
             }
             else if(username.equals(Admin.getUserAdmin()) && pass.equals(Admin.getPassAdmin())){
                 App.clearScreen();
-                System.out.println("\n\t==============================================");
-                System.out.println("\t||               Welcome Admin!             ||");
-                System.out.println("\t==============================================");
                 Admin.adminPage();
                 a = 1;
             }
@@ -47,7 +41,7 @@ public class App {
     public static double validDouble(){
         double inp;
         Scanner scan = new Scanner(System.in);
-        System.out.print(" ");
+        // System.out.print("\t=> ");
         while(true){
             try{
                 inp = scan.nextDouble();
