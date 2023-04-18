@@ -6,7 +6,11 @@ Anak Agung Indi Kusuma Putra
 ## About
 
 Program Simple Online Restaurant merupakan program Restaurant online sederhana yang menerima input dan mengeluarkan  output yang berbasis Command Line dan dibuat dalam bahasa Java.
+## UML Clas Diagram
 
+UML Class Diagram adalah jenis diagram yang berisi tabel yang menunjukan class yang ada pada program dan keterkaitannya satu sama lain. Berikut adalah UML class diagram pada Simple Online Restaurant
+
+![UML](/img/uml.png "UML")
 ## Alur Program
 
 Berikut adalah alur dari program Simple Online Restaurant
@@ -15,13 +19,13 @@ Berikut adalah alur dari program Simple Online Restaurant
 
 Program akan meminta User untuk menginputkan kredensial. Terdapat 2 tipe User yaitu Admin dan Customer yang kredensialnya bersifat statis dan sudah di hardcode pada program
 
-** Admin **
+**Admin**
 
 `Username : admin`
 
 `Password : admin`
 
-** Customer **
+**Customer**
 
 `Username : customer`
 

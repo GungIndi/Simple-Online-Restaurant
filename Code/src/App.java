@@ -1,10 +1,6 @@
 import java.util.*;
 
 public class App {
-    static String username;
-    static String pass;
-    static int a = 0;
-    String name, address, menu;
     public static void main(String[] args) throws Exception {
         login(); 
     }
@@ -16,6 +12,7 @@ public class App {
         System.out.println("\t|| Haloo selamat datang silahkan login dulu ||");
         System.out.println("\t||                                          ||");
         System.out.println("\t==============================================");
+        int a=0;
         do{
             System.out.print("\tMasukin Username => ");String username = scan.nextLine();
             System.out.print("\tMasukin Password => ");String pass = scan.nextLine();
